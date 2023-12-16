@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Giai Thừa</title>
+</head>
+<body>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET">
+        Nhập n<input type="number" name="a" placeholder="Nhập số n" required />
+        <input type="submit" value="Tính" />
+    </form>
+
+    <?php 
+        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["a"])) {
+            $a = $_GET["a"];
+            if(is_numeric($a) && $a >= 0){
+                function factorial($n) {
+                    if($n <= 1) {
+                        return 1;
+                    } else {
+                        return $n * factorial($n - 1);
+                    }
+                }
+                echo "$a! = ".factorial($a);
+            } else {
+                echo "Vui lòng nhập số nguyên không âm.";
+            }
+        }
+    ?>
+</body>
+</html>
