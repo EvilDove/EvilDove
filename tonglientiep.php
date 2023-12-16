@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng Liên Tiếp</title>
+</head>
+<body>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET">
+        Enter n<input type="number" name="a" placeholder="Nhập số n" required />
+        <input type="submit" value="Tính" />
+    </form>
+
+    <?php 
+        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["a"])) {
+            $a = $_GET["a"];
+            if(is_numeric($a) && $a > 0){
+                $sum = ($a * ($a + 1)) / 2;
+                echo "Tổng = ".$sum;
+            } else {
+                echo "Vui lòng nhập số nguyên dương.";
+            }
+        }
+    ?>
+</body>
+</html>
