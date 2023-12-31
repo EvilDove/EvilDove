@@ -24,8 +24,8 @@ function rememberMe($username)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $servername = "localhost";
     $database = "credentials";
-    $username = "jason";
-    $password = "TrongMinh07";
+    $username = "evildove";
+    $password = "Jason007";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
 
